@@ -131,25 +131,25 @@ jobs:
     steps:
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
+        uses: actions/create-release@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v1.0.${{ github.run_number }}
-          release_name: Release ${{ github.run_number }}
+          tag_name: v1.0.${{ github.ref }}
+          release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
 
-      - name: Upload Release Assets
-        id: upload-release-assets
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_paths: |
-            ${{ needs.release-linux-x64.outputs.artifact_path }}
-            ${{ needs.release-osx-x64.outputs.artifact_path }}
-            ${{ needs.release-osx-arm64.outputs.artifact_path }}
-            ${{ needs.release-win-x64.outputs.artifact_path }}
+      # - name: Upload Release Assets
+      #   id: upload-release-assets
+      #   uses: actions/upload-release-asset@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+      #     asset_paths: |
+      #       ${{ needs.release-linux-x64.outputs.artifact_path }}
+      #       ${{ needs.release-osx-x64.outputs.artifact_path }}
+      #       ${{ needs.release-osx-arm64.outputs.artifact_path }}
+      #       ${{ needs.release-win-x64.outputs.artifact_path }}
 
