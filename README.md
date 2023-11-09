@@ -43,3 +43,22 @@ CurseDelete.exe ExampleFolder
 
 ## License
 This program is licensed under the MIT License.
+
+## Release
+```
+└── bin
+    └── Release
+        └── net6.0
+            ├── linux-x64
+            │   └── publish
+            │       └── CurseDelete
+            ├── osx-arm64
+            │   └── publish
+            │       └── CurseDelete
+            ├── osx-x64
+            │   └── publish
+            │       └── CurseDelete
+            └── win-x64
+                └── publish
+                    └── CurseDelete.exe
+```
